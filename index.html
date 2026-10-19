@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071d18">
+  <title>Boundary — Live Cricket Scores</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">B</span><span>BOUNDARY<small>LIVE CRICKET</small></span></a>
+    <span class="live-pill"><i></i> LIVE SCORES</span>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">EVERY RUN. EVERY WICKET.</p>
+        <h1>Cricket, <span>live.</span></h1>
+        <p class="muted">Live match scores, batting cards and bowling figures in one place.</p>
+      </div>
+      <div class="cricket-ball" aria-hidden="true">●</div>
+    </section>
+
+    <section class="api-panel panel">
+      <div class="section-heading">
+        <div><p class="eyebrow">DATA CONNECTION</p><h2>Connect CricketData.org</h2></div>
+        <span id="connectionStatus" class="status">API key needed</span>
+      </div>
+      <p class="muted small">Get your key from CricketData.org, then paste it here. Your key is kept in this browser only.</p>
+      <form id="apiForm" class="key-form">
+        <input id="apiKey" type="password" autocomplete="off" placeholder="Paste your CricketData API key" aria-label="CricketData API key" required>
+        <button class="btn primary" type="submit">Connect</button>
+      </form>
+      <div class="api-actions">
+        <a href="https://cricketdata.org/" target="_blank" rel="noreferrer">Get an API key ↗</a>
+        <button id="forgetKey" class="text-button" type="button">Forget key</button>
+      </div>
+      <p id="apiMessage" class="message" role="status"></p>
+    </section>
+
+    <section class="matches-section">
+      <div class="section-heading">
+        <div><p class="eyebrow">ON THE FIELD</p><h2>International & live matches</h2></div>
+        <button id="refreshBtn" class="btn secondary" type="button">↻ Refresh</button>
+      </div>
+      <div id="matches" class="match-list">
+        <div class="empty-state"><span class="empty-icon">🏏</span><h3>Ready for the first ball?</h3><p>Connect your API key to load available matches.</p></div>
+      </div>
+    </section>
+
+    <section id="scorecardSection" class="scorecard-section hidden">
+      <div class="section-heading">
+        <div><p class="eyebrow">MATCH CENTRE</p><h2 id="scorecardTitle">Full scorecard</h2></div>
+        <button id="closeScorecard" class="text-button" type="button">Close ×</button>
+      </div>
+      <div id="scorecardContent"></div>
+    </section>
+
+    <footer>
+      <span class="brand-mini">BOUNDARY</span>
+      <span>Scores supplied by CricketData.org. Data availability depends on your API plan.</span>
+    </footer>
+  </main>
+  <script src="index.js"></script>
+</body>
+</html>
